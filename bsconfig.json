@@ -2,5 +2,10 @@
   "name": "re-big.js",
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
-  "sources": ["src"]
+  "sources": ["src", "examples"],
+  "suffix": ".bs.js",
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  }
 }
