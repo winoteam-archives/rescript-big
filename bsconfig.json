@@ -1,0 +1,6 @@
+{
+  "name": "re-big.js",
+  "bsc-flags": ["-bs-super-errors"],
+  "refmt": 3,
+  "sources": ["src"]
+}

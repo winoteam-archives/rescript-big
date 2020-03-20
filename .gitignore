@@ -1,0 +1,7 @@
+.merlin
+.bsb.lock
+.DS_Store
+*.cm*
+*.js
+node_modules/
+lib/
