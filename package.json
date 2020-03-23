@@ -1,12 +1,14 @@
 {
   "name": "@wino/re-big.js",
   "version": "0.1.0",
+  "main": "src/Big.bs.js",
   "description": "Reason + BuckleScript bindings for Big.js",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "test": "exit 0"
+    "test": "exit 0",
+    "prepublish": "yarn run clean && yarn run build"
   },
   "repository": {
     "type": "git",
@@ -31,7 +33,6 @@
   "dependencies": {
     "big.js": "^5.2.2"
   },
-  "main": "index.js",
   "directories": {
     "example": "examples",
     "lib": "lib"
