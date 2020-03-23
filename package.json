@@ -8,7 +8,7 @@
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "exit 0",
-    "prepublish": "yarn run clean && yarn run build"
+    "prepublish": "rm -rf lib && yarn run clean && yarn run build && rm -rf lib/bs/examples"
   },
   "repository": {
     "type": "git",
