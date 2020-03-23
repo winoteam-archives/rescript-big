@@ -1,5 +1,5 @@
 open Big;
-open! Operators;
+open! Big.Operators;
 
 // Initialize a new big instance
 let decimal = big(2.6);

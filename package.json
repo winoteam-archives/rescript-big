@@ -8,11 +8,11 @@
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "exit 0",
-    "prepublish": "rm -rf lib && yarn run clean && yarn run build && rm -rf lib/bs/examples"
+    "prepublish": "rm -rf lib && yarn run clean && yarn run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/winoteam/re-big.js.git"
+    "url": "git+https://github.com/winoteam/re-big.git"
   },
   "keywords": [
     "big.js",
@@ -24,9 +24,9 @@
   "author": "wino",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/winoteam/re-big.js/issues"
+    "url": "https://github.com/winoteam/re-big/issues"
   },
-  "homepage": "https://github.com/winoteam/re-big.js#readme",
+  "homepage": "https://github.com/winoteam/re-big#readme",
   "devDependencies": {
     "bs-platform": "^7.2.2"
   },
