@@ -1,7 +1,6 @@
 {
   "name": "@wino/re-big",
-  "version": "0.1.1",
-  "main": "src/Big.bs.js",
+  "version": "1.0.0",
   "description": "Reason + BuckleScript bindings for Big.js",
   "scripts": {
     "build": "bsb -make-world",
