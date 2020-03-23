@@ -3,6 +3,7 @@
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
   "sources": ["src", "examples"],
+  "namespace": true,
   "suffix": ".bs.js",
   "package-specs": {
     "module": "es6",
