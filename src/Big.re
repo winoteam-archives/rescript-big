@@ -3,6 +3,6 @@ type t;
 
 [@bs.send] external toFixed: (t, int) => string = "toFixed";
 
-[@bs.send] external plus: (t, float) => t = "plus";
+[@bs.send] external plus: (t, t) => t = "plus";
 
 [@bs.send] external times: (t, t) => t = "times";
