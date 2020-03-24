@@ -1,12 +1,21 @@
 {
-  "name": "re-big.js",
+  "name": "re-big",
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
-  "sources": ["src", "examples"],
-  "namespace": true,
-  "suffix": ".bs.js",
-  "package-specs": {
-    "module": "es6",
-    "in-source": true
-  }
+  "sources": [
+    {
+      "dir": "src"
+    },
+    {
+      "dir": "examples",
+      "type": "dev"
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "commonjs",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js"
 }

@@ -1,4 +1,4 @@
-# re-big.js
+# re-big
 
 Reason + BuckleScript bindings for [Big.js](https://github.com/MikeMcl/big.js/)
 
