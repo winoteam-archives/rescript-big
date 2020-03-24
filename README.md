@@ -7,13 +7,13 @@ Reason + BuckleScript bindings for [Big.js](https://github.com/MikeMcl/big.js/)
 Using npm:
 
 ```bash
-npm install @wino/re-big.js
+npm install @wino/re-big
 ```
 
 Using yarn:
 
 ```bash
-yarn add @wino/re-big.js
+yarn add @wino/re-big
 ```
 
 # Usage
