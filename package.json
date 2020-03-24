@@ -7,7 +7,8 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "test": "exit 0",
+    "test": "yarn build && jest",
+    "test:watch": "yarn build && jest --watchAll",
     "prepublish": "rm -rf lib && yarn run clean && yarn run build"
   },
   "repository": {
@@ -28,7 +29,10 @@
   },
   "homepage": "https://github.com/winoteam/re-big#readme",
   "devDependencies": {
-    "bs-platform": "^7.2.2"
+    "bs-platform": "^7.2.2",
+    "@glennsl/bs-jest": "^0.4.9",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0"
   },
   "dependencies": {
     "big.js": "^5.2.2"

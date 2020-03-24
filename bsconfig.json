@@ -7,10 +7,16 @@
       "dir": "src"
     },
     {
+      "dir": "__tests__",
+      "type": "dev"
+    },
+    {
       "dir": "examples",
       "type": "dev"
     }
   ],
+  "bs-dependencies": [],
+  "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "package-specs": [
     {
       "module": "commonjs",
