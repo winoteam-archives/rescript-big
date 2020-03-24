@@ -22,7 +22,7 @@ module Big = {
   };
 };
 
-[@bs.module] external make: float => Big.t = "big.js";
+[@bs.module "big.js"] external make: float => Big.t = "Big";
 let big = make;
 
 let toFixed = Big.toFixed;
