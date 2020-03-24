@@ -1,5 +1,5 @@
 {
-  "name": "re-big",
+  "name": "@wino/re-big",
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3,
   "sources": [
