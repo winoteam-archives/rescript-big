@@ -1,0 +1,90 @@
+# Javascript Node Github Actions configuration file
+#
+# Check https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml for more details
+#
+
+name: re-big-test-suite
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-16.04
+
+    steps:
+      - name: Checkout repository source code
+        uses: actions/checkout@v2
+
+      - name: Setting up Node.js 8.12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8.12
+
+      # Get yarn cache directory path to verify
+      # if there is a cache there
+      - name: Getting yarn cache directory path
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Writing NPM_TOKEN github secrets to .npmrc file and providing it in env
+        run: |
+          echo "scope=wino" >> .npmrc
+          echo "@wino:registry=https://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Based on previous step output response (the yarn cache directory)
+      # check if there is cache to fetch
+      # if not cache
+      - name: Fetching dependencies cache
+        uses: actions/cache@v1
+        id: yarn-cache
+        env:
+          cache-name: cache-node-modules
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      # Python is required to run Ninja (contained in ReasonML build system)
+      - name: Installing Python 3.7.6
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.7.6"
+
+      # Provide NPM_TOKEN and PYTHON's executable
+      # to install project dependencies
+      - name: Installing project dependencies
+        uses: CultureHQ/actions-yarn@master
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PYTHON: ${{ env.pythonLocation }}
+        with:
+          args: install
+
+      - name: Linting code
+        uses: CultureHQ/actions-yarn@master
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PYTHON: ${{ env.pythonLocation }}
+        with:
+          args: lint
+
+      # Should build project before start running tests
+      - name: Building project
+        uses: CultureHQ/actions-yarn@master
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PYTHON: ${{ env.pythonLocation }}
+        with:
+          args: build
+
+      - name: Running unit tests
+        uses: CultureHQ/actions-yarn@master
+        env:
+          PYTHON: ${{ env.pythonLocation }}
+        with:
+          args: test
