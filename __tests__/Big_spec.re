@@ -1,8 +1,8 @@
 open Jest;
-open ReBig;
-open! ReBig.Operators;
+open Big;
+open! Big.Operators;
 
-describe("ReBig - Big.js bindings from ReasonML / Ocaml", () => {
+describe("Big - Big.js bindings from ReasonML / Ocaml", () => {
   open Expect;
   open! Expect.Operators;
 

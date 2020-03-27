@@ -1,5 +1,5 @@
-open ReBig;
-open! ReBig.Operators;
+open Big;
+open! Big.Operators;
 
 // Initialize a new big instance
 let decimal = big(201.57512);
