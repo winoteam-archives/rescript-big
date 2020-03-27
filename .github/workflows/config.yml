@@ -65,14 +65,6 @@ jobs:
         with:
           args: install
 
-      - name: Linting code
-        uses: CultureHQ/actions-yarn@master
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PYTHON: ${{ env.pythonLocation }}
-        with:
-          args: lint
-
       # Should build project before start running tests
       - name: Building project
         uses: CultureHQ/actions-yarn@master
