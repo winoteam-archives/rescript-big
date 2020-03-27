@@ -1,6 +1,8 @@
 # re-big
 
-Reason + BuckleScript bindings for [Big.js](https://github.com/MikeMcl/big.js/).
+[![Actions Status](https://github.com/winoteam/re-big/workflows/re-big-test-suite/badge.svg)](https://github.com/winoteam/re-big/actions)
+
+🎡Reason + BuckleScript bindings for [Big.js](https://github.com/MikeMcl/big.js/).
 
 In this version only `toFixed`, `plus`, `times` and `valueOf` are supported.
 
@@ -8,7 +10,11 @@ We add `toFloat` function to convert a `big` to `float`.
 
 It's accompanied with an `Operators` module which override some operators like `+.`, `*.` and bind another one `$.` to method `toFixed(int)`.
 
-# Installation
+# ⚡️ Requirements
+
+- A solid environement with [Node js](https://nodejs.org/en/)
+
+# 📦 Installation
 
 Using npm:
 
@@ -22,7 +28,7 @@ Using yarn:
 yarn add @wino/re-big
 ```
 
-# Usage
+# 💻 How to use
 
 Module name is `Big` !
 
@@ -34,12 +40,12 @@ open Big;
 open! Big.Operators;
 ```
 
-Initialize a new big instance.
+And be initialized this way
 
 ```js
 let decimal = big(2020.2065);
 
-let decimal = 2020.2065->big;
+/* or */ let decimal = 2020.2065->big;
 ```
 
 Fix an output
@@ -58,7 +64,7 @@ Js.log(big(2.5) *. big(0.)); // output -> 0
 Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat) // output -> 7.5
 ```
 
-# Features
+# 🌈 Features
 
 #### The `plus` binding
 
@@ -83,3 +89,18 @@ valueOf: t => string
 ```reasonml
 toFixed: (t, int) => string
 ```
+
+# 🕺 Contribute
+
+**Want to hack on functions? Follow the next instructions: 🚀**
+
+1. Fork this repository to your own GitHub account and then clone it to your local device
+2. Install dependencies using Yarn: yarn
+3. Ensure that the tests are passing using yarn test
+4. Send a pull request 🙌
+
+Remember to add tests for your change if possible.
+
+# 👋 Questions
+
+If you have any questions, feel free to open an issue. Please check the [Big.js docs](https://github.com/MikeMcl/big.js/) before submitting an issue.
