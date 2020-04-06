@@ -34,7 +34,7 @@ Module name is `Big` !
 
 It can be opened this way:
 
-```reasonml
+```reason
 open Big;
 
 open! Big.Operators;
@@ -42,7 +42,7 @@ open! Big.Operators;
 
 And be initialized this way
 
-```js
+```reason
 let decimal = big(2020.2065);
 
 /* or */ let decimal = 2020.2065->big;
@@ -50,13 +50,13 @@ let decimal = big(2020.2065);
 
 Fix an output
 
-```reasonml
+```reason
 Js.log(decimal $. 2); // output -> 2020.21
 ```
 
 Use the operators
 
-```reasonml
+```reason
 Js.log(big(0.1) +. big(0.2)); // output -> 0.3
 
 Js.log(big(2.5) *. big(0.)); // output -> 0
@@ -68,25 +68,25 @@ Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat) // output -> 7.5
 
 #### The `plus` binding
 
-```reasonml
+```reason
 toFixed: (t, int) => string
 ```
 
 #### The `times` binding
 
-```reasonml
+```reason
 times: (t, t) => t
 ```
 
 #### The `valueOf` binding
 
-```reasonml
+```reason
 valueOf: t => string
 ```
 
 #### The `toFixed` binding
 
-```reasonml
+```reason
 toFixed: (t, int) => string
 ```
 
