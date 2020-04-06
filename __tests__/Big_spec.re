@@ -2,12 +2,16 @@ open Jest;
 open Big;
 open! Big.Operators;
 
-describe("Big - Big.js bindings from ReasonML / Ocaml", () => {
+describe("Big.js bindings from ReasonML / Ocaml", () => {
   open Expect;
   open! Expect.Operators;
 
   test("big(2.0) is just equals to float(2.0)", () => {
     expect(2.0->big->float_of_big) === 2.0
+  });
+
+  test("big(2.0) is just equals to float(2.0)", () => {
+    expect(2.0->big->plus(3.0->big)) == 5.0->big
   });
 
   test("big(2.0) +. big(5.2) +. big(0.3) should be equals to float(7.5)", () => {

@@ -23,5 +23,17 @@
       "in-source": true
     }
   ],
-  "suffix": ".bs.js"
+  "suffix": ".bs.js",
+  "gentypeconfig": {
+    "language": "typescript",
+    "module": "es6",
+    "importPath": "relative",
+    "shims": {
+      "ReasonPervasives": "ReasonPervasives"
+    },
+    "debug": {
+      "all": false,
+      "basic": false
+    }
+  }
 }
