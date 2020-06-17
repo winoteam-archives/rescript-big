@@ -26,4 +26,12 @@ describe("Big.js bindings from ReasonML / Ocaml", () => {
     expect((2020.2065->big *. 3.0->big $. 2)->float_of_string->big)
     == 6060.62->big
   });
+
+  test("big(4.2) /. big(2.0) should be equals to big(2.1)", () => {
+    expect(4.2->big /. 2.0->big) == 2.1->big
+  });
+
+  test("big(2.2) -. big(0.2) should be equals to big(2.0)", () => {
+    expect(2.2->big -. 0.2->big) == 2.0->big
+  });
 });

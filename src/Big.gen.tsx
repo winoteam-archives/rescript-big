@@ -22,6 +22,16 @@ export const plus: (a:t, b:t) => t = function (Arg1: any, Arg2: any) {
   return result
 };
 
+export const minus: (a:t, b:t) => t = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.minus, Arg1, Arg2);
+  return result
+};
+
+export const div: (a:t, b:t) => t = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.div, Arg1, Arg2);
+  return result
+};
+
 export const times: (a:t, b:t) => t = function (Arg1: any, Arg2: any) {
   const result = Curry._2(BigBS.times, Arg1, Arg2);
   return result

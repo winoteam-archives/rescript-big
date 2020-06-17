@@ -9,6 +9,14 @@ let toFixed = (a, dp) => toFixed(a, dp);
 [@genType]
 let plus = (a, b) => plus(a, b);
 
+[@bs.send] external minus: (t, t) => t = "minus";
+[@genType]
+let minus = (a, b) => minus(a, b);
+
+[@bs.send] external div: (t, t) => t = "div";
+[@genType]
+let div = (a, b) => div(a, b);
+
 [@bs.send] external times: (t, t) => t = "times";
 [@genType]
 let times = (a, b) => times(a, b);
@@ -43,5 +51,7 @@ let int_of_big = decimal => {
 module Operators = {
   let (+.) = (a: t, b: t) => a->plus(b);
   let ( *. ) = (a: t, b: t) => a->times(b);
+  let (-.) = (a: t, b: t) => a->minus(b);
+  let (/.) = (a: t, b: t) => a->div(b);
   let ($.) = (a: t, b: int) => a->toFixed(b);
 };

@@ -9,6 +9,8 @@
     "clean": "bsb -clean-world",
     "test": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js",
     "test:watch": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js --watchAll",
+    "test:watch-re": "yarn build && jest --runInBand --config jest.config.js --watchAll",
+    "test:watch-ts": "jest --runInBand --config jest.config.ts.js --watchAll",
     "prepublish": "rm -rf lib && yarn run clean && yarn run build"
   },
   "repository": {

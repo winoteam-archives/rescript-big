@@ -19,8 +19,14 @@ Jest.describe("Big.js bindings from ReasonML / Ocaml", (function (param) {
         Jest.test("big(2.0) *. big(3.0) should be equals to big(6.0)", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$star$dot(Big.big(2.0), Big.big(3.0))), Big.big(6.0));
               }));
-        return Jest.test("big(2020.2065) *. big(3.0) $. 2 should be equals to big(6060.62)", (function (param) {
-                      return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.big(Caml_format.caml_float_of_string(Big.Operators.$$dot(Big.Operators.$star$dot(Big.big(2020.2065), Big.big(3.0)), 2)))), Big.big(6060.62));
+        Jest.test("big(2020.2065) *. big(3.0) $. 2 should be equals to big(6060.62)", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.big(Caml_format.caml_float_of_string(Big.Operators.$$dot(Big.Operators.$star$dot(Big.big(2020.2065), Big.big(3.0)), 2)))), Big.big(6060.62));
+              }));
+        Jest.test("big(4.2) /. big(2.0) should be equals to big(2.1)", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$slash$dot(Big.big(4.2), Big.big(2.0))), Big.big(2.1));
+              }));
+        return Jest.test("big(2.2) -. big(0.2) should be equals to big(2.0)", (function (param) {
+                      return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$neg$dot(Big.big(2.2), Big.big(0.2))), Big.big(2.0));
                     }));
       }));
 
