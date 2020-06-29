@@ -61,6 +61,10 @@ Js.log(big(0.1) +. big(0.2)); // output -> 0.3
 
 Js.log(big(2.5) *. big(0.)); // output -> 0
 
+Js.log(big(4.2) /. big(2.0)); // output -> 2.1
+
+Js.log(big(4.2) -. big(4.0)); // output -> 0.2
+
 Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat) // output -> 7.5
 ```
 
@@ -78,6 +82,18 @@ toFixed: (t, int) => string
 times: (t, t) => t
 ```
 
+#### The `minus` binding
+
+```reason
+minus: (t, t) => t
+```
+
+#### The `div` binding
+
+```reason
+div: (t, t) => t
+```
+
 #### The `valueOf` binding
 
 ```reason
@@ -88,6 +104,24 @@ valueOf: t => string
 
 ```reason
 toFixed: (t, int) => string
+```
+
+#### `big_of_int`
+
+```reason
+Js.log(12->big_of_int);
+```
+
+#### `int_of_big`
+
+```reason
+Js.log(12.->big->big_of_int);
+```
+
+#### `float_of_big`
+
+```reason
+Js.log(big(12.)->float_of_big);
 ```
 
 # 🕺 Contribute
