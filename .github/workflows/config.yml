@@ -26,12 +26,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
-        uses: CultureHQ/actions-yarn@master
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PYTHON: ${{ env.pythonLocation }}
-        with:
-          args: build
+        run: yarn build
 
       - name: Test
         run: yarn test
