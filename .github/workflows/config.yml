@@ -53,7 +53,7 @@ jobs:
       - name: Installing Python 3.7.6
         uses: actions/setup-python@v1
         with:
-          python-version: "3.7.6"
+          python-version: "3.8.3"
 
       # Provide NPM_TOKEN and PYTHON's executable
       # to install project dependencies
