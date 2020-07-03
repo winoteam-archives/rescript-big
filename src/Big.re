@@ -25,6 +25,10 @@ let times = (a, b) => times(a, b);
 [@genType]
 let valueOf = a => valueOf(a);
 
+[@bs.send] external round: (t, int, int) => t = "round";
+[@genType]
+let round = (a, dp) => round(a, dp, 1); // 1, here represent Big.RM (default value) -> ROUND_HALF_UP
+
 [@bs.module "big.js"] external make: float => t = "Big";
 
 [@genType]
@@ -54,4 +58,5 @@ module Operators = {
   let (-.) = (a: t, b: t) => a->minus(b);
   let (/.) = (a: t, b: t) => a->div(b);
   let ($.) = (a: t, b: int) => a->toFixed(b);
+  let (@.) = (a: t, b: int) => a->round(b);
 };

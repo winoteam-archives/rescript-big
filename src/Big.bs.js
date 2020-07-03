@@ -28,6 +28,10 @@ function valueOf(a) {
   return a.valueOf();
 }
 
+function round(a, dp) {
+  return a.round(dp, 1);
+}
+
 function big_of_float(prim) {
   return BigJs.Big(prim);
 }
@@ -64,12 +68,17 @@ function $$dot(a, b) {
   return a.toFixed(b);
 }
 
+function $at$dot(a, b) {
+  return a.round(b, 1);
+}
+
 var Operators = {
   $plus$dot: $plus$dot,
   $star$dot: $star$dot,
   $neg$dot: $neg$dot,
   $slash$dot: $slash$dot,
-  $$dot: $$dot
+  $$dot: $$dot,
+  $at$dot: $at$dot
 };
 
 var big = big_of_float;
@@ -80,6 +89,7 @@ exports.minus = minus;
 exports.div = div;
 exports.times = times;
 exports.valueOf = valueOf;
+exports.round = round;
 exports.big_of_float = big_of_float;
 exports.big = big;
 exports.big_of_int = big_of_int;

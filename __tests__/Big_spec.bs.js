@@ -10,23 +10,23 @@ Jest.describe("Big.js bindings from ReasonML / Ocaml", (function (param) {
         Jest.test("big(2.0) is just equals to float(2.0)", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.float_of_big(Big.big(2.0))), 2.0);
               }));
-        Jest.test("big(2.0) is just equals to float(2.0)", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.plus(Big.big(2.0), Big.big(3.0))), Big.big(5.0));
-              }));
-        Jest.test("big(2.0) +. big(5.2) +. big(0.3) should be equals to float(7.5)", (function (param) {
+        Jest.test("should correctly add values", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.float_of_big(Big.Operators.$plus$dot(Big.Operators.$plus$dot(Big.big(2.0), Big.big(5.2)), Big.big(0.3)))), 7.5);
               }));
-        Jest.test("big(2.0) *. big(3.0) should be equals to big(6.0)", (function (param) {
+        Jest.test("should correctly multiply values", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$star$dot(Big.big(2.0), Big.big(3.0))), Big.big(6.0));
               }));
-        Jest.test("big(2020.2065) *. big(3.0) $. 2 should be equals to big(6060.62)", (function (param) {
+        Jest.test("should correctly multiply values and precise response", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.big(Caml_format.caml_float_of_string(Big.Operators.$$dot(Big.Operators.$star$dot(Big.big(2020.2065), Big.big(3.0)), 2)))), Big.big(6060.62));
               }));
-        Jest.test("big(4.2) /. big(2.0) should be equals to big(2.1)", (function (param) {
+        Jest.test("should correctly divide values", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$slash$dot(Big.big(4.2), Big.big(2.0))), Big.big(2.1));
               }));
-        return Jest.test("big(2.2) -. big(0.2) should be equals to big(2.0)", (function (param) {
-                      return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$neg$dot(Big.big(2.2), Big.big(0.2))), Big.big(2.0));
+        Jest.test("should do substract and return correct value", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$neg$dot(Big.big(2.2), Big.big(0.2))), Big.big(2.0));
+              }));
+        return Jest.test("should correctly round decimal value", (function (param) {
+                      return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$at$dot(Big.big(79.116666666666658755), 4)), Big.big(79.1167));
                     }));
       }));
 

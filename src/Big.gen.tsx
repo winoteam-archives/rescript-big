@@ -39,6 +39,11 @@ export const times: (a:t, b:t) => t = function (Arg1: any, Arg2: any) {
 
 export const valueOf: (a:t) => string = BigBS.valueOf;
 
+export const round: (a:t, dp:number) => t = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.round, Arg1, Arg2);
+  return result
+};
+
 export const big_of_float: (_1:number) => t = BigBS.big_of_float;
 
 export const big: (_1:number) => t = BigBS.big;
