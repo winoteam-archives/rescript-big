@@ -29,6 +29,26 @@ let valueOf = a => valueOf(a);
 [@genType]
 let round = (a, dp) => round(a, dp, 1); // 1, here represent Big.RM (default value) -> ROUND_HALF_UP
 
+[@bs.send] external eq: (t, t) => bool = "eq";
+[@genType]
+let eq = (a, b) => eq(a, b);
+
+[@bs.send] external gt: (t, t) => bool = "gt";
+[@genType]
+let gt = (a, b) => gt(a, b);
+
+[@bs.send] external gte: (t, t) => bool = "gte";
+[@genType]
+let gte = (a, b) => gte(a, b);
+
+[@bs.send] external lt: (t, t) => bool = "lt";
+[@genType]
+let lt = (a, b) => lt(a, b);
+
+[@bs.send] external lte: (t, t) => bool = "lte";
+[@genType]
+let lte = (a, b) => lte(a, b);
+
 [@bs.module "big.js"] external make: float => t = "Big";
 
 [@genType]
@@ -59,4 +79,10 @@ module Operators = {
   let (/.) = (a: t, b: t) => a->div(b);
   let ($.) = (a: t, b: int) => a->toFixed(b);
   let (@.) = (a: t, b: int) => a->round(b);
+  let (==.) = (a: t, b: t) => a->eq(b);
+  let (===.) = (a: t, b: t) => a->eq(b);
+  let (>.) = (a: t, b: t) => a->gt(b);
+  let (>=.) = (a: t, b: t) => a->gte(b);
+  let (<.) = (a: t, b: t) => a->lt(b);
+  let (<=.) = (a: t, b: t) => a->lte(b);
 };

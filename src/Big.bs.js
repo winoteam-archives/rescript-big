@@ -32,6 +32,26 @@ function round(a, dp) {
   return a.round(dp, 1);
 }
 
+function eq(a, b) {
+  return a.eq(b);
+}
+
+function gt(a, b) {
+  return a.gt(b);
+}
+
+function gte(a, b) {
+  return a.gte(b);
+}
+
+function lt(a, b) {
+  return a.lt(b);
+}
+
+function lte(a, b) {
+  return a.lte(b);
+}
+
 function big_of_float(prim) {
   return BigJs.Big(prim);
 }
@@ -72,13 +92,43 @@ function $at$dot(a, b) {
   return a.round(b, 1);
 }
 
+function $eq$eq$dot(a, b) {
+  return a.eq(b);
+}
+
+function $eq$eq$eq$dot(a, b) {
+  return a.eq(b);
+}
+
+function $great$dot(a, b) {
+  return a.gt(b);
+}
+
+function $great$eq$dot(a, b) {
+  return a.gte(b);
+}
+
+function $less$dot(a, b) {
+  return a.lt(b);
+}
+
+function $less$eq$dot(a, b) {
+  return a.lte(b);
+}
+
 var Operators = {
   $plus$dot: $plus$dot,
   $star$dot: $star$dot,
   $neg$dot: $neg$dot,
   $slash$dot: $slash$dot,
   $$dot: $$dot,
-  $at$dot: $at$dot
+  $at$dot: $at$dot,
+  $eq$eq$dot: $eq$eq$dot,
+  $eq$eq$eq$dot: $eq$eq$eq$dot,
+  $great$dot: $great$dot,
+  $great$eq$dot: $great$eq$dot,
+  $less$dot: $less$dot,
+  $less$eq$dot: $less$eq$dot
 };
 
 var big = big_of_float;
@@ -90,6 +140,11 @@ exports.div = div;
 exports.times = times;
 exports.valueOf = valueOf;
 exports.round = round;
+exports.eq = eq;
+exports.gt = gt;
+exports.gte = gte;
+exports.lt = lt;
+exports.lte = lte;
 exports.big_of_float = big_of_float;
 exports.big = big;
 exports.big_of_int = big_of_int;

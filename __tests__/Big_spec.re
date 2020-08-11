@@ -34,4 +34,32 @@ describe("Big.js bindings from ReasonML / Ocaml", () => {
   test("should correctly round decimal value", () => {
     expect(79.116666666666658755->big @. 4) == 79.1167->big
   });
+
+  test("should compare w/ ==", () => {
+    expect(79.11->big ==. 79.10->big) === false
+  });
+
+  test("should compare w/ ===", () => {
+    expect(79.11->big ===. 79.10->big) === false
+  });
+
+  test("should compare w/ >", () => {
+    expect(79.11->big >. 79.10->big) === true
+  });
+
+  test("should compare w/ >=", () => {
+    expect(79.11->big >=. 79.11->big) === true
+  });
+
+  test("should compare w/ >=", () => {
+    expect(79.11->big >=. 79.12->big) === false
+  });
+
+  test("should compare w/ <", () => {
+    expect(79.11->big <. 79.12->big) === true
+  });
+
+  test("should compare w/ <=", () => {
+    expect(79.11->big <=. 79.12->big) === true
+  });
 });

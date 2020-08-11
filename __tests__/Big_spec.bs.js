@@ -25,8 +25,29 @@ Jest.describe("Big.js bindings from ReasonML / Ocaml", (function (param) {
         Jest.test("should do substract and return correct value", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$neg$dot(Big.big(2.2), Big.big(0.2))), Big.big(2.0));
               }));
-        return Jest.test("should correctly round decimal value", (function (param) {
-                      return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$at$dot(Big.big(79.116666666666658755), 4)), Big.big(79.1167));
+        Jest.test("should correctly round decimal value", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$at$dot(Big.big(79.116666666666658755), 4)), Big.big(79.1167));
+              }));
+        Jest.test("should compare w/ ==", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$eq$eq$dot(Big.big(79.11), Big.big(79.10))), false);
+              }));
+        Jest.test("should compare w/ ===", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$eq$eq$eq$dot(Big.big(79.11), Big.big(79.10))), false);
+              }));
+        Jest.test("should compare w/ >", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$great$dot(Big.big(79.11), Big.big(79.10))), true);
+              }));
+        Jest.test("should compare w/ >=", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$great$eq$dot(Big.big(79.11), Big.big(79.11))), true);
+              }));
+        Jest.test("should compare w/ >=", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$great$eq$dot(Big.big(79.11), Big.big(79.12))), false);
+              }));
+        Jest.test("should compare w/ <", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$less$dot(Big.big(79.11), Big.big(79.12))), true);
+              }));
+        return Jest.test("should compare w/ <=", (function (param) {
+                      return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$less$eq$dot(Big.big(79.11), Big.big(79.12))), true);
                     }));
       }));
 

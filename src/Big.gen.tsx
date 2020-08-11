@@ -44,6 +44,31 @@ export const round: (a:t, dp:number) => t = function (Arg1: any, Arg2: any) {
   return result
 };
 
+export const eq: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.eq, Arg1, Arg2);
+  return result
+};
+
+export const gt: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.gt, Arg1, Arg2);
+  return result
+};
+
+export const gte: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.gte, Arg1, Arg2);
+  return result
+};
+
+export const lt: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.lt, Arg1, Arg2);
+  return result
+};
+
+export const lte: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
+  const result = Curry._2(BigBS.lte, Arg1, Arg2);
+  return result
+};
+
 export const big_of_float: (_1:number) => t = BigBS.big_of_float;
 
 export const big: (_1:number) => t = BigBS.big;
