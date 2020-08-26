@@ -1,15 +1,8 @@
-import {
-  plus,
-  big,
-  float_of_big,
-  times,
-  toFixed,
-  valueOf,
-} from "./../src/Big.gen";
+import { plus, big, toFloat, times, toFixed, valueOf } from "./../src/Big.gen";
 
 describe("Big.js bindings from ReasonML / Ocaml - Typescript support", () => {
   test("big(2.0) is just equals to float(2.0)", () => {
-    expect(float_of_big(big(2.0))).toStrictEqual(2.0);
+    expect(toFloat(big(2.0))).toStrictEqual(2.0);
   });
 
   test("big(2.0) is just equals to float(2.0)", () => {
@@ -17,9 +10,9 @@ describe("Big.js bindings from ReasonML / Ocaml - Typescript support", () => {
   });
 
   test("big(2.0) + big(5.2) + big(0.3) should be equals to float(7.5)", () => {
-    expect(
-      float_of_big(plus(plus(big(2.0), big(5.2)), big(0.3)))
-    ).toStrictEqual(7.5);
+    expect(toFloat(plus(plus(big(2.0), big(5.2)), big(0.3)))).toStrictEqual(
+      7.5
+    );
   });
 
   test("big(2.0) * big(3.0) should be equals to big(6.0)", () => {
