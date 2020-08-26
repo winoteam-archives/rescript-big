@@ -52,19 +52,19 @@ function lte(a, b) {
   return a.lte(b);
 }
 
-function big_of_float(prim) {
+function fromFloat(prim) {
   return BigJs.Big(prim);
 }
 
-function big_of_int(prim) {
+function fromInt(prim) {
   return BigJs.Big(prim);
 }
 
-function float_of_big(decimal) {
+function toFloat(decimal) {
   return Caml_format.caml_float_of_string(decimal.valueOf());
 }
 
-function int_of_big(decimal) {
+function toInt(decimal) {
   return Caml_format.caml_int_of_string(decimal.valueOf());
 }
 
@@ -131,7 +131,7 @@ var Operators = {
   $less$eq$dot: $less$eq$dot
 };
 
-var big = big_of_float;
+var big = fromFloat;
 
 exports.toFixed = toFixed;
 exports.plus = plus;
@@ -145,10 +145,10 @@ exports.gt = gt;
 exports.gte = gte;
 exports.lt = lt;
 exports.lte = lte;
-exports.big_of_float = big_of_float;
+exports.fromFloat = fromFloat;
 exports.big = big;
-exports.big_of_int = big_of_int;
-exports.float_of_big = float_of_big;
-exports.int_of_big = int_of_big;
+exports.fromInt = fromInt;
+exports.toFloat = toFloat;
+exports.toInt = toInt;
 exports.Operators = Operators;
 /* big.js Not a pure module */

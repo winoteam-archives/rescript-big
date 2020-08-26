@@ -7,11 +7,11 @@ describe("Big.js bindings from ReasonML / Ocaml", () => {
   open! Expect.Operators;
 
   test("big(2.0) is just equals to float(2.0)", () => {
-    expect(2.0->big->float_of_big) === 2.0
+    expect(2.0->big->Big.toFloat) === 2.0
   });
 
   test("should correctly add values", () => {
-    expect((2.0->big +. 5.2->big +. 0.3->big)->float_of_big) === 7.5
+    expect((2.0->big +. 5.2->big +. 0.3->big)->Big.toFloat) === 7.5
   });
 
   test("should correctly multiply values", () => {

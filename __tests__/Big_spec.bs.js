@@ -8,10 +8,10 @@ var Caml_format = require("bs-platform/lib/js/caml_format.js");
 
 Jest.describe("Big.js bindings from ReasonML / Ocaml", (function (param) {
         Jest.test("big(2.0) is just equals to float(2.0)", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.float_of_big(Big.big(2.0))), 2.0);
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.toFloat(Big.big(2.0))), 2.0);
               }));
         Jest.test("should correctly add values", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.float_of_big(Big.Operators.$plus$dot(Big.Operators.$plus$dot(Big.big(2.0), Big.big(5.2)), Big.big(0.3)))), 7.5);
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.toFloat(Big.Operators.$plus$dot(Big.Operators.$plus$dot(Big.big(2.0), Big.big(5.2)), Big.big(0.3)))), 7.5);
               }));
         Jest.test("should correctly multiply values", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$star$dot(Big.big(2.0), Big.big(3.0))), Big.big(6.0));

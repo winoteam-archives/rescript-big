@@ -1,74 +1,150 @@
 [@genType]
 type t;
 
-[@bs.send] external toFixed: (t, int) => string = "toFixed";
+/**
+ * Returns a string representing the value of this Big number
+ * in normal notation to a fixed number of &dp decimal places.
+ */
+[@bs.send]
+external toFixed: (t, int) => string = "toFixed";
 [@genType]
 let toFixed = (a, dp) => toFixed(a, dp);
 
-[@bs.send] external plus: (t, t) => t = "plus";
+/**
+ * Returns a Big number whose value is
+ * the addition of 2 Big numbers, &a and &b
+ */
+[@bs.send]
+external plus: (t, t) => t = "plus";
 [@genType]
 let plus = (a, b) => plus(a, b);
 
-[@bs.send] external minus: (t, t) => t = "minus";
+/**
+ * Returns a Big number whose value is the
+ * substraction of 2 Big numbers, &a and &b
+ */
+[@bs.send]
+external minus: (t, t) => t = "minus";
 [@genType]
 let minus = (a, b) => minus(a, b);
 
-[@bs.send] external div: (t, t) => t = "div";
+/**
+ * Returns a Big number whose
+ * value is the division of &a by &b
+ */
+[@bs.send]
+external div: (t, t) => t = "div";
 [@genType]
 let div = (a, b) => div(a, b);
 
-[@bs.send] external times: (t, t) => t = "times";
+/**
+ * Returns a Big number whose value is &a &b-times
+ */
+[@bs.send]
+external times: (t, t) => t = "times";
 [@genType]
 let times = (a, b) => times(a, b);
 
-[@bs.send] external valueOf: t => string = "valueOf";
+/**
+ * As toString except the minus sign is included for negative zero
+ */
+[@bs.send]
+external valueOf: t => string = "valueOf";
 [@genType]
 let valueOf = a => valueOf(a);
 
-[@bs.send] external round: (t, int, int) => t = "round";
+/**
+ * Returns a Big number whose value is the value of this Big number
+ * rounded using rounding mode rm to a maximum of dp decimal
+ * places, or, if dp is negative, rounded to an integer
+ * which is a multiple of 10**-dp.
+ */
+[@bs.send]
+external round: (t, int, int) => t = "round";
 [@genType]
 let round = (a, dp) => round(a, dp, 1); // 1, here represent Big.RM (default value) -> ROUND_HALF_UP
 
-[@bs.send] external eq: (t, t) => bool = "eq";
+/**
+ * Returns true if the value of &a equals
+ * the value of &b, otherwise returns false
+ */
+[@bs.send]
+external eq: (t, t) => bool = "eq";
 [@genType]
 let eq = (a, b) => eq(a, b);
 
-[@bs.send] external gt: (t, t) => bool = "gt";
+/**
+ * Returns true if the value of &a greater
+ * than the value of &b, otherwise returns false
+ */
+[@bs.send]
+external gt: (t, t) => bool = "gt";
 [@genType]
 let gt = (a, b) => gt(a, b);
 
-[@bs.send] external gte: (t, t) => bool = "gte";
+/**
+ * Returns true if the value of &a greater than
+ * or equal the value of &b, otherwise returns false
+ */
+[@bs.send]
+external gte: (t, t) => bool = "gte";
 [@genType]
 let gte = (a, b) => gte(a, b);
 
-[@bs.send] external lt: (t, t) => bool = "lt";
+/**
+ * Returns true if the value of &a is less than
+ * the value of &b, otherwise returns false.
+ */
+[@bs.send]
+external lt: (t, t) => bool = "lt";
 [@genType]
 let lt = (a, b) => lt(a, b);
 
-[@bs.send] external lte: (t, t) => bool = "lte";
+/**
+ * Returns true if the value of &a is less than
+ * or equal the value of &b, otherwise returns false.
+ */
+[@bs.send]
+external lte: (t, t) => bool = "lte";
 [@genType]
 let lte = (a, b) => lte(a, b);
 
-[@bs.module "big.js"] external make: float => t = "Big";
+/**
+ * The module maker -- Big number constructor from a float
+ */
+[@genType] [@bs.module "big.js"]
+external makeFromFloat: float => t = "Big";
 
+/**
+ * The module maker -- Big number constructor from an int
+ */
+[@genType] [@bs.module "big.js"]
+external makeFromInt: int => t = "Big";
+
+/**
+ * Converters
+ */
 [@genType]
-let big_of_float = make;
+// Converts float to Big
+let fromFloat = makeFromFloat;
 
+// Just an alias of Big.fromFloat
 [@genType]
-let big = big_of_float;
+let big = fromFloat;
 
-[@genType] [@bs.module "big.js"] external make: int => t = "Big";
-
+// Converts int to Big
 [@genType]
-let big_of_int = make;
+let fromInt = makeFromInt;
 
+// Converts a Big number to a float
 [@genType]
-let float_of_big = decimal => {
+let toFloat = decimal => {
   float_of_string(valueOf(decimal));
 };
 
+// Converts a Big number to an int
 [@genType]
-let int_of_big = decimal => {
+let toInt = decimal => {
   int_of_string(valueOf(decimal));
 };
 

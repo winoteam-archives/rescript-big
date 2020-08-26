@@ -69,12 +69,15 @@ export const lte: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
   return result
 };
 
-export const big_of_float: (_1:number) => t = BigBS.big_of_float;
+/** 
+ * Converters
+  */
+export const fromFloat: (_1:number) => t = BigBS.fromFloat;
 
 export const big: (_1:number) => t = BigBS.big;
 
-export const big_of_int: (_1:number) => t = BigBS.big_of_int;
+export const fromInt: (_1:number) => t = BigBS.fromInt;
 
-export const float_of_big: (decimal:t) => number = BigBS.float_of_big;
+export const toFloat: (decimal:t) => number = BigBS.toFloat;
 
-export const int_of_big: (decimal:t) => number = BigBS.int_of_big;
+export const toInt: (decimal:t) => number = BigBS.toInt;
