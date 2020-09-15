@@ -2,9 +2,10 @@
   "name": "@wino/re-big",
   "version": "2.0.0",
   "description": "Reason + BuckleScript bindings for Big.js",
+  "types": "lib/Big.gen.d.ts",
   "main": "src/Big.bs.js",
   "scripts": {
-    "build": "bsb -make-world -clean-world",
+    "build": "bsb -make-world -clean-world && tsc --declaration",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js",
