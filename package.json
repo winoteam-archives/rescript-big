@@ -1,6 +1,6 @@
 {
   "name": "@wino/re-big",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Reason + BuckleScript bindings for Big.js",
   "types": "lib/Big.gen.d.ts",
   "main": "src/Big.bs.js",
