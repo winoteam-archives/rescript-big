@@ -3,16 +3,16 @@
   "version": "2.1.2",
   "description": "Reason + BuckleScript bindings for Big.js",
   "types": "lib/Big.gen.d.ts",
-  "main": "src/Big.bs.js",
+  "main": "lib/Big.bs.js",
   "scripts": {
-    "build": "bsb -make-world -clean-world && tsc --declaration",
+    "build": "bsb -make-world -clean-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js",
     "test:watch": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js --watchAll",
     "test:watch-re": "yarn build && jest --runInBand --config jest.config.js --watchAll",
     "test:watch-ts": "jest --runInBand --config jest.config.ts.js --watchAll",
-    "prepublish": "rm -rf lib && yarn run clean && yarn run build",
+    "prepublish": "rm -rf lib && yarn run clean && yarn run build && tsc --declaration",
     "postversion": "git push --tags && npm publish && git push && echo \"Successfully released version $npm_package_version!\""
   },
   "repository": {
