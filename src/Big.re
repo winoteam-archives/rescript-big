@@ -1,5 +1,5 @@
 [@genType]
-type t;
+type t = float;
 
 /**
  * Returns a string representing the value of this Big number
