@@ -1711,9 +1711,10 @@ bs-logger@0.x:
   dependencies:
     fast-json-stable-stringify "2.x"
 
-"bs-platform@git://github.com/rescript-lang/rescript-compiler.git":
-  version "8.5.0"
-  resolved "git://github.com/rescript-lang/rescript-compiler.git#798562ee38d0df91cc18a7690f6abd617ef71118"
+bs-platform@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-9.0.0.tgz#873e9edcfe49a89b082e71c604d73bdb8276e2fb"
+  integrity sha512-32gIXIUt1RO+OUWLrkhXFOuZKS5Cka6lEShXaVC/ohg5N8cUnoNZW9M/vW3CWnmgZkQ0Hp9g9vj5I5NfzHpy5A==
 
 bser@2.1.1:
   version "2.1.1"
