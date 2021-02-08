@@ -15,6 +15,7 @@
       "type": "dev"
     }
   ],
+  "external-stdlib": "@rescript/std",
   "bs-dependencies": [],
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "package-specs": [
@@ -26,7 +27,7 @@
   "suffix": ".bs.js",
   "gentypeconfig": {
     "language": "typescript",
-    "module": "es6",
+    "module": "commonjs",
     "importPath": "relative",
     "shims": {
       "ReasonPervasives": "ReasonPervasives"

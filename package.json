@@ -12,7 +12,7 @@
     "test:watch": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js --watchAll",
     "test:watch-re": "yarn build && jest --runInBand --config jest.config.js --watchAll",
     "test:watch-ts": "jest --runInBand --config jest.config.ts.js --watchAll",
-    "prepublish": "rm -rf lib && yarn run clean && yarn run build && tsc --declaration",
+    "prepublish": "rm -rf lib && yarn run clean && yarn run build && tsc --declaration && cp -r src/Big.bs.js lib/Big.bs.js",
     "postversion": "git push --tags && npm publish && git push && echo \"Successfully released version $npm_package_version!\""
   },
   "repository": {
@@ -36,18 +36,19 @@
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "@glennsl/bs-jest": "^0.4.9",
-    "@types/jest": "^25.1.4",
-    "@types/node": "^13.9.1",
-    "babel-jest": "^25.1.0",
-    "bs-platform": "^7.2.2",
-    "gentype": "^3.15.0",
-    "jest": "^25.1.0",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+    "@glennsl/bs-jest": "0.4.9",
+    "@types/jest": "25.1.4",
+    "@types/node": "13.9.1",
+    "babel-jest": "25.1.0",
+    "bs-platform": "9.0.0",
+    "gentype": "3.42.0",
+    "jest": "25.1.0",
+    "ts-jest": "25.2.1",
+    "typescript": "3.8.3"
   },
   "dependencies": {
-    "big.js": "^5.2.2"
+    "@rescript/std": "^8.5.0",
+    "big.js": "5.2.2"
   },
   "directories": {
     "example": "examples",
