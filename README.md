@@ -10,11 +10,11 @@ We add `toFloat` function to convert a `big` to `float`.
 
 It's accompanied with an `Operators` module which override some operators like `+.`, `*.` and bind another one `$.` to method `toFixed(int)`.
 
-# ⚡️ Requirements
+## ⚡️ Requirements
 
 - A solid environement with [Node js](https://nodejs.org/en/)
 
-# 📦 Installation
+## 📦 Installation
 
 Using npm:
 
@@ -28,7 +28,7 @@ Using yarn:
 yarn add @wino/re-big
 ```
 
-# 💻 How to use
+## 💻 How to use
 
 Module name is `Big` !
 
@@ -68,7 +68,7 @@ Js.log(big(4.2) -. big(4.0)); // output -> 0.2
 Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat) // output -> 7.5
 ```
 
-# 🌈 Features
+## 🌈 Features
 
 #### The `plus` binding
 
@@ -124,7 +124,7 @@ Js.log(12.->big->big_of_int);
 Js.log(big(12.)->float_of_big);
 ```
 
-# 🕺 Contribute
+## 🕺 Contribute
 
 **Want to hack on functions? Follow the next instructions: 🚀**
 
@@ -135,6 +135,6 @@ Js.log(big(12.)->float_of_big);
 
 Remember to add tests for your change if possible.
 
-# 👋 Questions
+## 👋 Questions
 
 If you have any questions, feel free to open an issue. Please check the [Big.js docs](https://github.com/MikeMcl/big.js/) before submitting an issue.
