@@ -1,11 +1,11 @@
-/* TypeScript file generated from Big.re by genType. */
+/* TypeScript file generated from Big.res by genType. */
 /* eslint-disable import/first */
 
 
-// tslint:disable-next-line:no-var-requires
-const Curry = require('bs-platform/lib/js/curry.js');
+// @ts-ignore: Implicit any on import
+const Curry = require('@rescript/std/lib/js/curry.js');
 
-// tslint:disable-next-line:no-var-requires
+// @ts-ignore: Implicit any on import
 const BigBS = require('./Big.bs');
 
 // tslint:disable-next-line:interface-over-type-literal
