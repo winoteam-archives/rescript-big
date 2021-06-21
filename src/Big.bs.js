@@ -68,67 +68,62 @@ function toInt(decimal) {
   return Caml_format.caml_int_of_string(decimal.valueOf());
 }
 
-function $plus$dot(a, b) {
+function plus$1(a, b) {
   return a.plus(b);
 }
 
-function $star$dot(a, b) {
+function times$1(a, b) {
   return a.times(b);
 }
 
-function $neg$dot(a, b) {
+function minus$1(a, b) {
   return a.minus(b);
 }
 
-function $slash$dot(a, b) {
+function div$1(a, b) {
   return a.div(b);
 }
 
-function $$dot(a, b) {
+function toFixed$1(a, b) {
   return a.toFixed(b);
 }
 
-function $at$dot(a, b) {
+function round$1(a, b) {
   return a.round(b, 1);
 }
 
-function $eq$eq$dot(a, b) {
+function eq$1(a, b) {
   return a.eq(b);
 }
 
-function $eq$eq$eq$dot(a, b) {
-  return a.eq(b);
-}
-
-function $great$dot(a, b) {
+function gt$1(a, b) {
   return a.gt(b);
 }
 
-function $great$eq$dot(a, b) {
+function gte$1(a, b) {
   return a.gte(b);
 }
 
-function $less$dot(a, b) {
+function lt$1(a, b) {
   return a.lt(b);
 }
 
-function $less$eq$dot(a, b) {
+function lte$1(a, b) {
   return a.lte(b);
 }
 
 var Operators = {
-  $plus$dot: $plus$dot,
-  $star$dot: $star$dot,
-  $neg$dot: $neg$dot,
-  $slash$dot: $slash$dot,
-  $$dot: $$dot,
-  $at$dot: $at$dot,
-  $eq$eq$dot: $eq$eq$dot,
-  $eq$eq$eq$dot: $eq$eq$eq$dot,
-  $great$dot: $great$dot,
-  $great$eq$dot: $great$eq$dot,
-  $less$dot: $less$dot,
-  $less$eq$dot: $less$eq$dot
+  plus: plus$1,
+  times: times$1,
+  minus: minus$1,
+  div: div$1,
+  toFixed: toFixed$1,
+  round: round$1,
+  eq: eq$1,
+  gt: gt$1,
+  gte: gte$1,
+  lt: lt$1,
+  lte: lte$1
 };
 
 var big = fromFloat;
