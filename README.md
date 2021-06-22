@@ -1,40 +1,40 @@
-# re-big
+# rescript-big
 
-[![Actions Status](https://github.com/winoteam/re-big/workflows/re-big-test-suite/badge.svg)](https://github.com/winoteam/re-big/actions)
+[![Actions Status](https://github.com/winoteam/rescript-big/workflows/rescript-big-test-suite/badge.svg)](https://github.com/winoteam/rescript-big/actions)
 
-🎡Reason + BuckleScript bindings for [Big.js](https://github.com/MikeMcl/big.js/).
+🎡 ReScript bindings for [Big.js](https://github.com/MikeMcl/big.js/).
 
 In this version only `toFixed`, `plus`, `times` and `valueOf` are supported.
 
 We add `toFloat` function to convert a `big` to `float`.
 
-It's accompanied with an `Operators` module which override some operators like `+.`, `*.` and bind another one `$.` to method `toFixed(int)`.
+It's accompanied with an `Operators` module which override some operators like `+.`, `*.`, `/.` and `-.`
 
-# ⚡️ Requirements
+## ⚡️ Requirements
 
 - A solid environement with [Node js](https://nodejs.org/en/)
 
-# 📦 Installation
+## 📦 Installation
 
 Using npm:
 
 ```bash
-npm install @wino/re-big
+npm install @wino/rescript-big
 ```
 
 Using yarn:
 
 ```bash
-yarn add @wino/re-big
+yarn add @wino/rescript-big
 ```
 
-# 💻 How to use
+## 💻 How to use
 
 Module name is `Big` !
 
 It can be opened this way:
 
-```reason
+```rei
 open Big;
 
 open! Big.Operators;
@@ -42,7 +42,7 @@ open! Big.Operators;
 
 And be initialized this way
 
-```reason
+```rei
 let decimal = big(2020.2065);
 
 /* or */ let decimal = 2020.2065->big;
@@ -50,13 +50,13 @@ let decimal = big(2020.2065);
 
 Fix an output
 
-```reason
+```rei
 Js.log(decimal $. 2); // output -> 2020.21
 ```
 
 Use the operators
 
-```reason
+```rei
 Js.log(big(0.1) +. big(0.2)); // output -> 0.3
 
 Js.log(big(2.5) *. big(0.)); // output -> 0
@@ -68,65 +68,65 @@ Js.log(big(4.2) -. big(4.0)); // output -> 0.2
 Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat) // output -> 7.5
 ```
 
-# 🌈 Features
+## 🌈 Features
 
-#### The `plus` binding
+### The `plus` binding
 
-```reason
-toFixed: (t, int) => string
+```rei
+plus: (t, int) => string
 ```
 
-#### The `times` binding
+### The `times` binding
 
-```reason
+```rei
 times: (t, t) => t
 ```
 
-#### The `minus` binding
+### The `minus` binding
 
-```reason
+```rei
 minus: (t, t) => t
 ```
 
-#### The `div` binding
+### The `div` binding
 
-```reason
+```rei
 div: (t, t) => t
 ```
 
-#### The `valueOf` binding
+### The `valueOf` binding
 
-```reason
+```rei
 valueOf: t => string
 ```
 
-#### The `toFixed` binding
+### The `toFixed` binding
 
-```reason
+```rei
 toFixed: (t, int) => string
 ```
 
-#### `big_of_int`
+### `big_of_int`
 
-```reason
+```rei
 Js.log(12->big_of_int);
 ```
 
-#### `int_of_big`
+### `int_of_big`
 
-```reason
+```rei
 Js.log(12.->big->big_of_int);
 ```
 
-#### `float_of_big`
+### `float_of_big`
 
-```reason
+```rei
 Js.log(big(12.)->float_of_big);
 ```
 
-# 🕺 Contribute
+## 🕺 Contribute
 
-**Want to hack on functions? Follow the next instructions: 🚀**
+### 🚀 Want to hack on functions? Follow the next instructions
 
 1. Fork this repository to your own GitHub account and then clone it to your local device
 2. Install dependencies using Yarn: yarn
@@ -135,6 +135,6 @@ Js.log(big(12.)->float_of_big);
 
 Remember to add tests for your change if possible.
 
-# 👋 Questions
+## 👋 Questions
 
 If you have any questions, feel free to open an issue. Please check the [Big.js docs](https://github.com/MikeMcl/big.js/) before submitting an issue.

@@ -1,7 +1,7 @@
 {
-  "name": "@wino/re-big",
+  "name": "@wino/rescript-big",
   "version": "3.0.0",
-  "description": "Reason + BuckleScript bindings for Big.js",
+  "description": "ReScript bindings for Big.js",
   "types": "lib/Big.gen.d.ts",
   "main": "lib/Big.bs.js",
   "scripts": {
@@ -17,21 +17,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/winoteam/re-big.git"
+    "url": "git+https://github.com/winoteam/rescript-big.git"
   },
   "keywords": [
     "big.js",
     "decimals",
     "ocaml",
     "reasonml",
-    "bucklescript"
+    "bucklescript",
+    "rescript"
   ],
   "author": "wino",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/winoteam/re-big/issues"
+    "url": "https://github.com/winoteam/rescript-big/issues"
   },
-  "homepage": "https://github.com/winoteam/re-big#readme",
+  "homepage": "https://github.com/winoteam/rescript-big#readme",
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.4.3",
