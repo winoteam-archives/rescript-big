@@ -4,9 +4,9 @@
 
 🎡 ReScript bindings for [Big.js](https://github.com/MikeMcl/big.js/).
 
-In this version only `toFixed`, `plus`, `times` and `valueOf` are supported.
+In this version only these methods are supported: `toFixed`, `plus`, `minus`, `div`, `times`, `valueOf`, `round`, `eq`, `gt`, `gte`, `lt` and `lte`
 
-We add `toFloat` function to convert a `big` to `float`.
+It also have some converters and shortcuts for converting an existing value or making a Big value, such as: `fromFloat`, `fromInt`, `toFloat`, `toInt` and `big` (the principal constructor) which is just and alias of `fromFloat` function
 
 It's accompanied with an `Operators` module which override some operators like `+.`, `*.`, `/.` and `-.`
 
@@ -35,93 +35,187 @@ Module name is `Big` !
 It can be opened this way:
 
 ```rei
-open Big;
+open Big
 
-open! Big.Operators;
+open! Big.Operators
 ```
 
 And be initialized this way
 
 ```rei
-let decimal = big(2020.2065);
-
-/* or */ let decimal = 2020.2065->big;
+let decimal = big(2020.2065) // OR: 2020.2065->big
 ```
 
 Fix an output
 
 ```rei
-Js.log(decimal $. 2); // output -> 2020.21
+Js.log(decimal->toFixed(2))
+// -> string(2020.21)
 ```
 
 Use the operators
 
 ```rei
-Js.log(big(0.1) +. big(0.2)); // output -> 0.3
+Js.log(big(0.1) +. big(0.2))
+// -> big(0.3)
 
-Js.log(big(2.5) *. big(0.)); // output -> 0
+Js.log(big(2.5) *. big(0.))
+// -> big(0)
 
-Js.log(big(4.2) /. big(2.0)); // output -> 2.1
+Js.log(big(4.2) /. big(2.0))
+// -> big(2.1)
 
-Js.log(big(4.2) -. big(4.0)); // output -> 0.2
+Js.log(big(4.2) -. big(4.0))
+// -> big(0.2)
 
-Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat) // output -> 7.5
+Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat)
+// -> float(7.5)
 ```
 
 ## 🌈 Features
 
+### The `toFixed` binding
+
+```rei
+toFixed: (t, int) => string
+
+Js.log(2020.2065->big->toFixed(2))
+// -> string(2020.20)
+```
+
 ### The `plus` binding
 
 ```rei
-plus: (t, int) => string
-```
+plus: (t, t) => t
 
-### The `times` binding
-
-```rei
-times: (t, t) => t
+Js.log(1.1->big->plus(2.2->big)) // OR: 1.1->big +. 2.2->big
+// -> big(3.3)
 ```
 
 ### The `minus` binding
 
 ```rei
 minus: (t, t) => t
+
+Js.log(3.3->big->minus(2.2->big)) // OR: 3.3->big -. 2.2->big
+// -> big(1.1)
 ```
 
 ### The `div` binding
 
 ```rei
 div: (t, t) => t
+
+Js.log(3.3->big->div(1.1->big)) // OR: 3.3->big /. 1.1->big
+// -> big(3.3)
+```
+
+### The `times` binding
+
+```rei
+times: (t, t) => t
+
+Js.log(3.3->big->times(1.1->big)) // OR: 3.3->big *. 1.1->big
+// -> big(3.3)
 ```
 
 ### The `valueOf` binding
 
 ```rei
 valueOf: t => string
+
+Js.log(79.11->big->valueOf)
+// -> string(79.11)
 ```
 
-### The `toFixed` binding
+### The `round` binding
 
 ```rei
-toFixed: (t, int) => string
+round: (t, int) => t
+
+Js.log(2065.2065->big->round(2))
+// -> string(2065.21)
 ```
 
-### `big_of_int`
+### The `eq` binding
 
 ```rei
-Js.log(12->big_of_int);
+eq: (t, t) => bool
+
+Js.log(79.11->big->eq(79.10->big))
+// -> bool(false)
 ```
 
-### `int_of_big`
+### The `gt` binding
 
 ```rei
-Js.log(12.->big->big_of_int);
+gt: (t, t) => bool
+
+Js.log(79.11->big->gt(79.10->big))
+// -> bool(true)
 ```
 
-### `float_of_big`
+### The `gte` binding
 
 ```rei
-Js.log(big(12.)->float_of_big);
+gte: (t, t) => bool
+
+Js.log(79.11->big->gte(79.12->big))
+// -> bool(false)
+```
+
+### The `lt` binding
+
+```rei
+lt: (t, t) => bool
+
+Js.log(79.11->big->lt(79.11->big))
+// -> bool(false)
+```
+
+### The `lte` binding
+
+```rei
+lte: (t, t) => bool
+
+Js.log(79.11->big->lte(79.11->big))
+// -> bool(true)
+```
+
+### `fromFloat`
+
+```rei
+fromFloat: float => t
+
+Js.log(12.99->fromFloat)
+// -> big(12.99)
+```
+
+### `fromInt`
+
+```rei
+fromInt: int => t
+
+Js.log(12->fromInt)
+// -> big(12)
+```
+
+### `toFloat`
+
+```rei
+toFloat: t => float
+
+Js.log(12.->big->toFloat)
+// -> float(12.0)
+```
+
+### `toInt`
+
+```rei
+toInt: t => int
+
+Js.log(12.->big->toInt)
+// -> int(12)
 ```
 
 ## 🕺 Contribute
