@@ -6,7 +6,7 @@ var Jest = require("@glennsl/bs-jest/src/jest.bs.js");
 var Curry = require("@rescript/std/lib/js/curry.js");
 var Caml_format = require("@rescript/std/lib/js/caml_format.js");
 
-Jest.describe("Big.js bindings from ReasonML / Ocaml", (function (param) {
+Jest.describe("Big.js bindings from ReScript", (function (param) {
         Jest.test("big(2.0) is just equals to float(2.0)", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.toFloat(Big.big(2.0))), 2.0);
               }));
@@ -17,7 +17,7 @@ Jest.describe("Big.js bindings from ReasonML / Ocaml", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$star$dot(Big.big(2.0), Big.big(3.0))), Big.big(6.0));
               }));
         Jest.test("should correctly multiply values and precise response", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.big(Caml_format.caml_float_of_string(Big.Operators.$$dot(Big.Operators.$star$dot(Big.big(2020.2065), Big.big(3.0)), 2)))), Big.big(6060.62));
+                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.big(Caml_format.caml_float_of_string(Big.toFixed(Big.Operators.$star$dot(Big.big(2020.2065), Big.big(3.0)), 2)))), Big.big(6060.62));
               }));
         Jest.test("should correctly divide values", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$slash$dot(Big.big(4.2), Big.big(2.0))), Big.big(2.1));
@@ -26,28 +26,55 @@ Jest.describe("Big.js bindings from ReasonML / Ocaml", (function (param) {
                 return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$neg$dot(Big.big(2.2), Big.big(0.2))), Big.big(2.0));
               }));
         Jest.test("should correctly round decimal value", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.Operators.$at$dot(Big.big(79.116666666666658755), 4)), Big.big(79.1167));
+                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.round(Big.big(79.116666666666658755), 4)), Big.big(79.1167));
               }));
-        Jest.test("should compare w/ ==", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$eq$eq$dot(Big.big(79.11), Big.big(79.10))), false);
+        Jest.test("should compare with eq", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.eq(Big.big(79.11), Big.big(79.10))), false);
               }));
-        Jest.test("should compare w/ ===", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$eq$eq$eq$dot(Big.big(79.11), Big.big(79.10))), false);
+        Jest.test("should compare with eq", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.eq(Big.big(0), Big.big(0.0000000000001))), false);
               }));
-        Jest.test("should compare w/ >", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$great$dot(Big.big(79.11), Big.big(79.10))), true);
+        Jest.test("should compare with eq after round", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.eq(Big.big(0), Big.round(Big.big(0.0000000000001), 1))), true);
               }));
-        Jest.test("should compare w/ >=", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$great$eq$dot(Big.big(79.11), Big.big(79.11))), true);
+        Jest.test("should compare with gt", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.gt(Big.big(79.11), Big.big(79.10))), true);
               }));
-        Jest.test("should compare w/ >=", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$great$eq$dot(Big.big(79.11), Big.big(79.12))), false);
+        Jest.test("should compare with gt", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.gt(Big.big(79.11), Big.big(79.11))), false);
               }));
-        Jest.test("should compare w/ <", (function (param) {
-                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$less$dot(Big.big(79.11), Big.big(79.12))), true);
+        Jest.test("should compare with gte", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.gte(Big.big(79.11), Big.big(79.11))), true);
               }));
-        return Jest.test("should compare w/ <=", (function (param) {
-                      return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.Operators.$less$eq$dot(Big.big(79.11), Big.big(79.12))), true);
+        Jest.test("should compare with gte", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.gte(Big.big(79.11), Big.big(79.12))), false);
+              }));
+        Jest.test("should compare with lt", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.lt(Big.big(79.11), Big.big(79.12))), true);
+              }));
+        Jest.test("should compare with lt", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.lt(Big.big(79.11), Big.big(79.11))), false);
+              }));
+        Jest.test("should compare with lte", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.lte(Big.big(79.11), Big.big(79.12))), true);
+              }));
+        Jest.test("should compare with lte", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.lte(Big.big(79.11), Big.big(79.0001))), false);
+              }));
+        Jest.test("should return the string value of a big number", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.valueOf(Big.big(79.11))), "79.11");
+              }));
+        Jest.test("should return the int value of a big number", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.toInt(Big.big(79))), 79);
+              }));
+        Jest.test("should return the float value of a big number", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq$eq, Jest.Expect.expect(Big.toFloat(Big.big(79.11))), 79.11);
+              }));
+        Jest.test("should return the big value of an integer", (function (param) {
+                return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.fromInt(79)), Big.big(79));
+              }));
+        return Jest.test("should return the big value of a float", (function (param) {
+                      return Curry._2(Jest.Expect.Operators.$eq, Jest.Expect.expect(Big.fromFloat(79.99)), Big.big(79.99));
                     }));
       }));
 

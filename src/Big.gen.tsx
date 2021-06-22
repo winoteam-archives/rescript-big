@@ -1,15 +1,16 @@
-/* TypeScript file generated from Big.re by genType. */
+/* TypeScript file generated from Big.res by genType. */
 /* eslint-disable import/first */
 
 
-// tslint:disable-next-line:no-var-requires
-const Curry = require('bs-platform/lib/js/curry.js');
+// @ts-ignore: Implicit any on import
+const Curry = require('@rescript/std/lib/js/curry.js');
 
-// tslint:disable-next-line:no-var-requires
+// @ts-ignore: Implicit any on import
 const BigBS = require('./Big.bs');
 
-// tslint:disable-next-line:interface-over-type-literal
-export type t = number;
+// tslint:disable-next-line:max-classes-per-file 
+// tslint:disable-next-line:class-name
+export abstract class t { protected opaque!: any }; /* simulate opaque types */
 
 export const toFixed: (a:t, dp:number) => string = function (Arg1: any, Arg2: any) {
   const result = Curry._2(BigBS.toFixed, Arg1, Arg2);
@@ -68,9 +69,6 @@ export const lte: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
   return result
 };
 
-/** 
- * Converters
-  */
 export const fromFloat: (_1:number) => t = BigBS.fromFloat;
 
 export const big: (_1:number) => t = BigBS.big;

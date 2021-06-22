@@ -7,7 +7,7 @@ var decimal = Big.big(201.57512);
 
 console.log(decimal);
 
-console.log(Big.Operators.$$dot(decimal, 2));
+console.log(Big.toFixed(decimal, 2));
 
 console.log(Big.Operators.$plus$dot(Big.big(0.1), Big.big(0.2)));
 

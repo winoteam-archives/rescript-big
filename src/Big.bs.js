@@ -84,51 +84,11 @@ function $slash$dot(a, b) {
   return a.div(b);
 }
 
-function $$dot(a, b) {
-  return a.toFixed(b);
-}
-
-function $at$dot(a, b) {
-  return a.round(b, 1);
-}
-
-function $eq$eq$dot(a, b) {
-  return a.eq(b);
-}
-
-function $eq$eq$eq$dot(a, b) {
-  return a.eq(b);
-}
-
-function $great$dot(a, b) {
-  return a.gt(b);
-}
-
-function $great$eq$dot(a, b) {
-  return a.gte(b);
-}
-
-function $less$dot(a, b) {
-  return a.lt(b);
-}
-
-function $less$eq$dot(a, b) {
-  return a.lte(b);
-}
-
 var Operators = {
   $plus$dot: $plus$dot,
   $star$dot: $star$dot,
   $neg$dot: $neg$dot,
-  $slash$dot: $slash$dot,
-  $$dot: $$dot,
-  $at$dot: $at$dot,
-  $eq$eq$dot: $eq$eq$dot,
-  $eq$eq$eq$dot: $eq$eq$eq$dot,
-  $great$dot: $great$dot,
-  $great$eq$dot: $great$eq$dot,
-  $less$dot: $less$dot,
-  $less$eq$dot: $less$eq$dot
+  $slash$dot: $slash$dot
 };
 
 var big = fromFloat;
