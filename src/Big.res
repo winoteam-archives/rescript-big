@@ -98,15 +98,15 @@ external lte: (t, t) => bool = "lte"
 @genType
 let lte = (a, b) => lte(a, b)
 
-// The module maker -- Big number constructor from a float
+// Converters
+// Big number constructor from a float
 @genType @module("big.js")
 external makeFromFloat: float => t = "Big"
 
-// The module maker -- Big number constructor from an int
+// Big number constructor from an int
 @genType @module("big.js")
 external makeFromInt: int => t = "Big"
 
-// Converters
 @genType
 let fromFloat = makeFromFloat
 
