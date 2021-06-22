@@ -68,9 +68,6 @@ export const lte: (a:t, b:t) => boolean = function (Arg1: any, Arg2: any) {
   return result
 };
 
-/** 
- * Converters
-  */
 export const fromFloat: (_1:number) => t = BigBS.fromFloat;
 
 export const big: (_1:number) => t = BigBS.big;

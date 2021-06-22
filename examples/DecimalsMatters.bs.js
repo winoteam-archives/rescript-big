@@ -7,11 +7,11 @@ var decimal = Big.big(201.57512);
 
 console.log(decimal);
 
-console.log(Big.Operators.toFixed(decimal, 2));
+console.log(Big.toFixed(decimal, 2));
 
-console.log(Big.Operators.plus(Big.big(0.1), Big.big(0.2)));
+console.log(Big.Operators.$plus$dot(Big.big(0.1), Big.big(0.2)));
 
-console.log(Big.Operators.times(Big.big(2.5), Big.big(0)));
+console.log(Big.Operators.$star$dot(Big.big(2.5), Big.big(0)));
 
 exports.decimal = decimal;
 /* decimal Not a pure module */

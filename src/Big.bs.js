@@ -68,62 +68,27 @@ function toInt(decimal) {
   return Caml_format.caml_int_of_string(decimal.valueOf());
 }
 
-function plus$1(a, b) {
+function $plus$dot(a, b) {
   return a.plus(b);
 }
 
-function times$1(a, b) {
+function $star$dot(a, b) {
   return a.times(b);
 }
 
-function minus$1(a, b) {
+function $neg$dot(a, b) {
   return a.minus(b);
 }
 
-function div$1(a, b) {
+function $slash$dot(a, b) {
   return a.div(b);
 }
 
-function toFixed$1(a, b) {
-  return a.toFixed(b);
-}
-
-function round$1(a, b) {
-  return a.round(b, 1);
-}
-
-function eq$1(a, b) {
-  return a.eq(b);
-}
-
-function gt$1(a, b) {
-  return a.gt(b);
-}
-
-function gte$1(a, b) {
-  return a.gte(b);
-}
-
-function lt$1(a, b) {
-  return a.lt(b);
-}
-
-function lte$1(a, b) {
-  return a.lte(b);
-}
-
 var Operators = {
-  plus: plus$1,
-  times: times$1,
-  minus: minus$1,
-  div: div$1,
-  toFixed: toFixed$1,
-  round: round$1,
-  eq: eq$1,
-  gt: gt$1,
-  gte: gte$1,
-  lt: lt$1,
-  lte: lte$1
+  $plus$dot: $plus$dot,
+  $star$dot: $star$dot,
+  $neg$dot: $neg$dot,
+  $slash$dot: $slash$dot
 };
 
 var big = fromFloat;

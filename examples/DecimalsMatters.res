@@ -9,5 +9,5 @@ Js.log(decimal)
 Js.log(decimal->toFixed(2))
 
 // Use the operators
-Js.log(0.1->big->plus(0.2->big))
-Js.log(2.5->big->times(0.->big))
+Js.log(0.1->big +. 0.2->big)
+Js.log(2.5->big *. 0.->big)

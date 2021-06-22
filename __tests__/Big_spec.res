@@ -9,19 +9,19 @@ describe("Big.js bindings from ReasonML / Ocaml", () => {
   test("big(2.0) is just equals to float(2.0)", () => expect(2.0->big->Big.toFloat) === 2.0)
 
   test("should correctly add values", () =>
-    expect(2.0->big->plus(5.2->big->plus(0.3->big))->Big.toFloat) === 7.5
+    expect((2.0->big +. 5.2->big +. 0.3->big)->Big.toFloat) === 7.5
   )
 
-  test("should correctly multiply values", () => expect(2.0->big->times(3.0->big)) == 6.0->big)
+  test("should correctly multiply values", () => expect(2.0->big *. 3.0->big) == 6.0->big)
 
   test("should correctly multiply values and precise response", () =>
-    expect(2020.2065->big->times(3.0->big)->toFixed(2)->float_of_string->big) == 6060.62->big
+    expect((2020.2065->big *. 3.0->big)->toFixed(2)->float_of_string->big) == 6060.62->big
   )
 
-  test("should correctly divide values", () => expect(4.2->big->div(2.0->big)) == 2.1->big)
+  test("should correctly divide values", () => expect(4.2->big /. 2.0->big) == 2.1->big)
 
   test("should do substract and return correct value", () =>
-    expect(2.2->big->minus(0.2->big)) == 2.0->big
+    expect(2.2->big -. 0.2->big) == 2.0->big
   )
 
   test("should correctly round decimal value", () =>
