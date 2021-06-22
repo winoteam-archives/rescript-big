@@ -1,5 +1,5 @@
 @genType
-type t = float
+type t
 
 // Returns a string representing the value of this Big number
 // in normal notation to a fixed number of &dp decimal places.

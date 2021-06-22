@@ -8,8 +8,9 @@ const Curry = require('@rescript/std/lib/js/curry.js');
 // @ts-ignore: Implicit any on import
 const BigBS = require('./Big.bs');
 
-// tslint:disable-next-line:interface-over-type-literal
-export type t = number;
+// tslint:disable-next-line:max-classes-per-file 
+// tslint:disable-next-line:class-name
+export abstract class t { protected opaque!: any }; /* simulate opaque types */
 
 export const toFixed: (a:t, dp:number) => string = function (Arg1: any, Arg2: any) {
   const result = Curry._2(BigBS.toFixed, Arg1, Arg2);
