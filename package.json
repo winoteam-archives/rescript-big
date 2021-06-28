@@ -1,6 +1,6 @@
 {
   "name": "@wino/rescript-big",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "ReScript bindings for Big.js",
   "types": "lib/Big.gen.d.ts",
   "main": "lib/Big.bs.js",
