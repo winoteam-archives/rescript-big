@@ -1,5 +1,5 @@
 {
-  "name": "@wino/rescript-big",
+  "name": "rescript-big",
   "bsc-flags": ["-bs-super-errors"],
   "sources": [
     {
