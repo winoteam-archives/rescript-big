@@ -9,7 +9,7 @@
     "dev": "rescript build -w",
     "clean": "rescript clean -with-deps",
     "test": "jest",
-    "prepublish": "yarn clean && yarn bundle && yarn test && cp -r src/Big.bs.js lib/Big.bs.js"
+    "prepublishOnly": "yarn clean && yarn bundle && yarn test && cp -r src/Big.bs.js lib/Big.bs.js"
   },
   "repository": {
     "type": "git",
