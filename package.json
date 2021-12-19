@@ -1,19 +1,15 @@
 {
-  "name": "@wino/rescript-big",
+  "name": "rescript-big",
   "version": "3.1.0",
-  "description": "ReScript bindings for Big.js",
+  "description": "ReScript bindings for Big.js library",
   "types": "lib/Big.gen.d.ts",
   "main": "lib/Big.bs.js",
   "scripts": {
-    "build": "rescript",
-    "start": "rescript build -w",
+    "bundle": "rescript && tsc",
+    "dev": "rescript build -w",
     "clean": "rescript clean -with-deps",
-    "test": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js",
-    "test:watch": "yarn build && jest --runInBand --config jest.config.js && jest --runInBand --config jest.config.ts.js --watchAll",
-    "test:watch:re": "yarn build && jest --runInBand --config jest.config.js --watchAll",
-    "test:watch:ts": "jest --runInBand --config jest.config.ts.js --watchAll",
-    "prepublish": "rm -rf lib && yarn run clean && yarn run build && tsc --declaration && cp -r src/Big.bs.js lib/Big.bs.js",
-    "postversion": "git push --tags && npm publish && git push && echo \"Successfully released version $npm_package_version!\""
+    "test": "jest",
+    "prepublish": "yarn clean && yarn bundle && yarn test && cp -r src/Big.bs.js lib/Big.bs.js"
   },
   "repository": {
     "type": "git",
@@ -27,32 +23,22 @@
     "bucklescript",
     "rescript"
   ],
-  "author": "wino",
+  "author": "Wino Technologies (@winoteam)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/winoteam/rescript-big/issues"
   },
   "homepage": "https://github.com/winoteam/rescript-big#readme",
   "devDependencies": {
-    "@babel/cli": "7.1.2",
-    "@babel/core": "7.4.3",
-    "@babel/preset-env": "7.4.3",
-    "@glennsl/bs-jest": "0.4.9",
-    "@types/jest": "25.1.4",
-    "@types/node": "13.9.1",
-    "babel-jest": "25.1.0",
-    "gentype": "4.1.0",
-    "jest": "25.1.0",
+    "@types/big.js": "6.1.2",
+    "gentype": "4.3.0",
+    "jest": "27.4.5",
     "rescript": "9.1",
-    "ts-jest": "25.2.1",
-    "typescript": "3.8.3"
+    "ts-jest": "27.1.2",
+    "typescript": "4.5.4"
   },
   "dependencies": {
-    "@rescript/std": "8.5.0",
-    "big.js": "5.2.2"
-  },
-  "directories": {
-    "example": "examples",
-    "lib": "lib"
+    "@rescript/std": "9.1.3",
+    "big.js": "6.1.1"
   }
 }

@@ -1,5 +1,8 @@
 {
   "files.exclude": {
-    "**/*.bs.js": false
+    "tests/*.bs*.js": true
+  },
+  "[rescript]": {
+    "editor.defaultFormatter": "chenglou92.rescript-vscode"
   }
 }

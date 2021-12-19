@@ -1,2 +1,5 @@
 .merlin
-examples
+.bsb.lock
+.github
+.vscode
+example

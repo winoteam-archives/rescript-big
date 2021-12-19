@@ -6,17 +6,17 @@
       "dir": "src"
     },
     {
-      "dir": "__tests__",
+      "dir": "tests",
       "type": "dev"
     },
     {
-      "dir": "examples",
+      "dir": "example",
       "type": "dev"
     }
   ],
   "external-stdlib": "@rescript/std",
   "bs-dependencies": [],
-  "bs-dev-dependencies": ["@glennsl/bs-jest"],
+  "bs-dev-dependencies": [],
   "package-specs": [
     {
       "module": "commonjs",
