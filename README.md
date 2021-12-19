@@ -2,7 +2,7 @@
 
 [![Actions Status](https://github.com/winoteam/rescript-big/workflows/rescript-big/badge.svg)](https://github.com/winoteam/rescript-big/actions)
 
-🎡 Zero-cost bindings to [Big.js](https://github.com/MikeMcl/big.js/) library.
+**Zero-cost bindings to [Big.js](https://github.com/MikeMcl/big.js/) library.**
 
 In this version only these methods are supported: `toFixed`, `plus`, `minus`, `div`, `times`, `valueOf`, `round`, `eq`, `gt`, `gte`, `lt` and `lte`
 
@@ -46,7 +46,7 @@ Js.log(a *. b)
 
 ## 🕺 Contribute
 
-### 🚀 Want to hack on functions? Follow the next instructions
+### 🚀 Want to hack on `rescript-big`? Follow the next instructions
 
 1. Fork this repository to your own GitHub account and then clone it to your local device
 2. Install dependencies using Yarn: `yarn`
