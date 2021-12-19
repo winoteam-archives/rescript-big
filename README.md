@@ -1,75 +1,47 @@
 # rescript-big
 
-[![Actions Status](https://github.com/winoteam/rescript-big/workflows/rescript-big-test-suite/badge.svg)](https://github.com/winoteam/rescript-big/actions)
+[![Actions Status](https://github.com/winoteam/rescript-big/workflows/rescript-big/badge.svg)](https://github.com/winoteam/rescript-big/actions)
 
 🎡 Zero-cost bindings to [Big.js](https://github.com/MikeMcl/big.js/) library.
 
 In this version only these methods are supported: `toFixed`, `plus`, `minus`, `div`, `times`, `valueOf`, `round`, `eq`, `gt`, `gte`, `lt` and `lte`
 
-It also have some converters and shortcuts for converting an existing value or making a Big value, such as: `fromFloat`, `fromInt`, `toFloat`, `toInt` and `big` (the principal constructor) which is just and alias of `fromFloat` function
+It also have some converters and shortcuts for converting an existing value or making a Big value, such as: `fromFloat`or `toFloat`.
 
 It's accompanied with an `Operators` module which override some operators like `+.`, `*.`, `/.` and `-.`
 
-## ⚡️ Requirements
-
-- A solid environement with [Node js](https://nodejs.org/en/)
-
 ## 📦 Installation
 
-Using npm:
+Run the following command:
 
 ```bash
-npm install rescript-big
+$ yarn add rescript-big
 ```
 
-Using yarn:
+Then add `rescript-big` to your `bsconfig.json`'s dependencies:
 
-```bash
-yarn add rescript-big
+```diff
+ {
+   "bs-dependencies": [
++    "rescript-big"
+   ]
+ }
 ```
 
-## 💻 How to use
-
-Module name is `Big` !
-
-It can be opened this way:
+## 💻 Usage
 
 ```rescript
-open Big
-
 open! Big.Operators
-```
 
-And be initialized this way
+// Initialization
+let a = 201.57512->Big.fromFloat
+let b = 1.->Big.fromFloat
 
-```rescript
-let decimal = big(2020.2065) // OR: 2020.2065->big
-```
+// Fix
+Js.log(a->Big.toFixed(2))
 
-Fix an output
-
-```rescript
-Js.log(decimal->toFixed(2))
-// -> string(2020.21)
-```
-
-Use the operators
-
-```rescript
-Js.log(big(0.1) +. big(0.2))
-// -> big(0.3)
-
-Js.log(big(2.5) *. big(0.))
-// -> big(0)
-
-Js.log(big(4.2) /. big(2.0))
-// -> big(2.1)
-
-Js.log(big(4.2) -. big(4.0))
-// -> big(0.2)
-
-Js.log((2.0->big +. 5.2->big +. 0.3->big)->toFloat)
-// -> float(7.5)
+// Operators
+Js.log(a *. b)
 ```
 
 ## 🕺 Contribute
