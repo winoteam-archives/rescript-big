@@ -34,10 +34,15 @@ Then add `rescript-big` to your `bsconfig.json`'s dependencies:
 open! Big.Operators
 
 let a = 201.57512->Big.fromFloat
-let b = 1.->Big.fromFloat
-
 Js.log(a->Big.toFixed(2))
-Js.log(Big.valueOf(a *. b))
+
+// Compiler error: 1. is a float, not a big instance
+let c = a *. 1.
+
+// OK
+let b = 1.->Big.fromFloat
+let c = a *. b
+Js.log(Big.valueOf(c))
 ```
 
 ## 🕺 Contribute
